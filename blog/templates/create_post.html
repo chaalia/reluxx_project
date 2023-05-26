@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Create Post</title>
+    <link rel="stylesheet" href="{% static 'blog/style.css' %}">
+</head>
+<body>
+  <h2>Create Post</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+    <button><a href="{% url 'blog:create_category' %}">Create New Category</a></button>
+    <button type="submit">Create post</button>
+</form>
+</body>
+</html>

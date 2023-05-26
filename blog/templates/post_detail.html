@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'blog/style.css' %}">
+</head>
+<body>
+<li>
+  <h2>The details of this post:</h2>
+  <ul> Title: {{post.title}}</ul>
+  <ul> Content: {{post.content}}</ul>
+  <ul> Category: {{post.category}}</ul>
+  <ul> User: {{post.user}}</ul>
+</li>
+
+</body>
+</html>

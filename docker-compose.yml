@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  reluxx_db:
+    image: postgres
+    command: ["postgres", "-c", "log_statement=all"]
+    tty: true
+    stdin_open: true
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_reluxx:/var/lib/postgresql/data/
+      - ./init-postgres.sh:/docker-entrypoint-initdb.d/init-postgres.sh
+    environment:
+      - POSTGRES_USER=reluxx_user
+      - POSTGRES_PASSWORD=reluxx_password
+      - POSTGRES_DB=reluxx_dbase
+  reluxx:
+    build: .
+    ports:
+      - "8000:8000"
+    depends_on:
+      - reluxx_db
+    volumes:
+      - ./:/reluxx/
+    environment:
+      - POSTGRES_USER=reluxx_user
+      - POSTGRES_PASSWORD=reluxx_password
+      - POSTGRES_DB=reluxx_dbase
+      - POSTGRES_HOST=reluxx_db
+    stdin_open: true
+    tty: true
+
+volumes:
+  postgres_reluxx:

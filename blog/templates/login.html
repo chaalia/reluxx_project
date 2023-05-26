@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'blog/style.css' %}">
+</head>
+<body>
+<center>
+    <h2>Login</h2>
+    {% if error_message %}
+     {{ error_message }}
+    {% endif %}
+
+    <form method="post">
+        {% csrf_token %}
+        <label for="username">Username</label>
+        <input type="text" name="username" required><br/>
+        <label for="password">Password</label>
+        <input type="password" name="password" required><br/>
+        <button type="submit">login</button>
+    </form>
+</center>
+</body>
+</html>

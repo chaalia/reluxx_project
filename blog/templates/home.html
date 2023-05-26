@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+{% load static %}
+<head>
+  <title>Reluxx Blog</title>
+  <link rel="stylesheet" href="{% static 'blog/style.css' %}">
+</head>
+<body>
+<center>
+  <h1>Hello Reluxx Community</h1>
+  <h2>My Posts</h2>
+
+  {% if not user.is_authenticated %}
+  <div class="top-right-buttons">
+    <button>
+      <a href="{% url 'blog:register' %}"  />register </a>
+    </button>
+        <button>
+      <a href="{% url 'blog:login' %}"  />login </a>
+    </button>
+  </div>
+{% endif %}
+
+  <form method="GET">
+    {% csrf_token %}
+    <input type="text" name="q" placeholder="Search..." value="{{ query }}">
+    <select name="category">
+      <option value="" {% if not category %}selected{% endif %}>All Categories</option>
+      {% for category in categories %}
+        <option value="{{ category.pk }}" {% if category.pk == category %}selected{% endif %}>{{ category.name }}</option>
+      {% endfor %}
+    </select>
+    <!-- Create Category button -->
+    <button type="submit">Search</button>
+  </form>
+
+  <ul>
+    {% for post in posts %}
+      <li>
+        <div class="post-details">
+          {{ post.title }} - {{ post.content }} - {{ post.category }}
+        </div>
+        <div class="post-actions">
+          <a href="{% url 'blog:view_post' post.pk %}"><button>View</button></a>
+          <a href="{% url 'blog:edit_post' post.pk %}"><button>Edit</button></a>
+          <a href="{% url 'blog:delete_post' post.pk %}"><button>Delete</button></a>
+        </div>
+      </li>
+    {% empty %}
+      <li>No posts yet.</li>
+    {% endfor %}
+  </ul>
+
+  <h2>Create your posts here:</h2>
+  <button><a href="{% url 'blog:create_post' %}">Create New Post</a></button>
+
+    {% if user.is_authenticated %}
+  <div class="top-right-buttons">
+    <button>
+      <a href="{% url 'blog:logout' %}"  />logout </a>
+    </button>
+  </div>
+{% endif %}
+</center>
+</body>
+</html>

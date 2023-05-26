@@ -1,0 +1,54 @@
+body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    h1, h2 {
+      margin-bottom: 10px;
+    }
+
+    form {
+      margin-bottom: 20px;
+    }
+
+    input[type="text"], select {
+      padding: 5px;
+      width: 200px;
+    }
+
+    button {
+      padding: 5px 10px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    .post-details {
+      font-weight: bold;
+    }
+
+    .post-actions button {
+      margin-right: 5px;
+    }
+
+.top-right-buttons {
+  position: absolute;
+  top: 100px;
+  right: 10px;
+}
+
+input{
+padding: 5px ;
+margin: 10px;
+width: 200px;
+}
