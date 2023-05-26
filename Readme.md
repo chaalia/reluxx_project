@@ -14,4 +14,4 @@ Run the project using Docker:
 
 
 ### Run the tests:
-    - python3 manage.py runserver   
+    - python3 manage.py test   
