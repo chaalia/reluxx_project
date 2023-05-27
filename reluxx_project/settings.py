@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 import os
 import sys
 from pathlib import Path
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure--q)-(1@_sm=)$hu9-sgn$429%^8c)ea+x4-^&e^@o4*+605dj_'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -88,7 +91,7 @@ else:
         'default': {
             "ENGINE": "django.db.backends.sqlite3",
             "TEST": {
-                'NAME': BASE_DIR / 'sdb.sqlite3',
+                'NAME': BASE_DIR / 'db.sqlite3',
             }}}
 
 # Password validation
