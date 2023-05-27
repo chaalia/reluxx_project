@@ -11,8 +11,10 @@ Run the project using Docker:
     - In reluxx_project directory, make a copy for the file env.tpl file and add it to the same directory as .env
     - python3 manage.py migrate
     - python3 manage.py runserver
-  - Or run the project using the script build.sh:
-    - bash build.sh
+    
+
+- Or run the project using the script build.sh:
+  - bash build.sh
 
 
 ### Run the tests:
@@ -20,10 +22,10 @@ Run the project using Docker:
 
 
 ### Test the appliction using these credentials:
- user: admin
- password: complexpassword123
+ - user: admin
+ - password: complexpassword123
 
 
-Production informations:
-the django app is deployed on the server: render.com
-The database is deployed on the server: elephantsql.com
+## Production informations:
+- the django app is deployed on the server: render.com
+- The database is deployed on the server: elephantsql.com
