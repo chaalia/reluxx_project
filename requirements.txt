@@ -9,6 +9,7 @@ Pillow~=9.3.0
 ipython==8.13.2
 ipdb~=0.13.13
 decorator~=5.1.1
+gunicorn
 parso~=0.8.3
 jedi~=0.18.2
 colorama==0.4.6
